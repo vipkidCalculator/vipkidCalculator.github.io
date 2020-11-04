@@ -1,5 +1,3 @@
-// How to push code to github: https://www.youtube.com/watch?v=wrb7Gge9yoE
-
 // Form validation.
 // document.getElementById's saved into a variable for easier use. 
 var elementBaseRate = document.getElementById("base-rate");
@@ -107,7 +105,6 @@ elementTrialNoShowClasses.addEventListener('change', function(event){
 	var charInvalid = isNaN(document.getElementById('trial-no-show-classes').value);
 	var element = document.querySelector('#trial-no-show-classes-validate');
 	element.style.color = "black";
-	var shortNoticePlusTrialClasses = parseInt(elementTrialNoShowClasses.value) + parseInt(elementShortNoticeClasses.value);
 	submitPermitted.submitFive = false;
 	
 	if(charInvalid){
@@ -119,10 +116,7 @@ elementTrialNoShowClasses.addEventListener('change', function(event){
 	}else if(parseInt(elementTrialNoShowClasses.value) > parseInt(elementThisMonthClasses.value)){
 		element.style.color = "red";
 		elementTrialNoShowClassesValidate.textContent = "Your number of trial no show classes this month cannot be more than your total number of classes this month.";
-	}/*else if(shortNoticePlusTrialClasses > parseInt(elementThisMonthClasses.value)){
-		element.style.color = "red";
-		elementTrialNoShowClassesValidate.textContent = "Your number of trial no show classes + the number of short notice classes cannot be greater than the total classes this month. Please re-enter your short notice and trial classes.";
-	}*/else{
+	}else{
 		elementTrialNoShowClassesValidate.textContent = "Valid input. :)";
 		submitPermitted.submitFive = true;
 	}
@@ -184,7 +178,7 @@ var totalNewPay = 0;
 	
 /* These salaryCalc() local vars are to calculate the OLD incentive pay */
 var oldPartInc = 0;
-var oldFinClassesInc = 0;
+var oldFinClassesInc = 1;
 var totalOldBonus = 0;
 var totalOldPay = 0;
 	
@@ -365,13 +359,10 @@ function totalOldPayCalc() {
 	/* Assign incentive amounts according to the OLD pay scale. */
 	if (thisMonthClasses < 30) {
 		oldPartInc = 0;
-		oldFinClassesInc = 0;
 	} else if (thisMonthClasses >= 30 && thisMonthClasses < 45) {
-		oldPartInc = 0.5;
-		oldFinClassesInc = 0.5;		
+		oldPartInc = 0.5;	
 	} else {
-		oldPartInc = 1;
-		oldFinClassesInc = 1;		
+		oldPartInc = 1;		
 	}
 	
 	/* Add participation and finished classes incentives to the old bonus total. */
