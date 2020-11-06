@@ -18,7 +18,7 @@ var submitPermitted = {
 	submitThree: false,
 	submitFour: false,
 	submitFive: false,
-	submitSix: false,
+	//submitSix: false,
 };
 
 elementBaseRate.addEventListener('change', function(event){
@@ -122,6 +122,11 @@ elementTrialNoShowClasses.addEventListener('change', function(event){
 	}
 }); 
 
+/* This form validation was unnecessary. It is actually possible to have all of your classes 
+be short notice, and then have some Trial SNS's as well. So those trial SNS's would get half the base rate, but still receive short notice pay. 
+It is possible for your short notice plus trial classes to be over the total classes this month and still be a valid input. 
+I am removing this validation. :)
+/*
 document.getElementById('our-form').addEventListener('submit', function(event){
     event.preventDefault();
 	var element = document.querySelector('#after-submit-validate');
@@ -137,6 +142,7 @@ document.getElementById('our-form').addEventListener('submit', function(event){
 		submitPermitted.submitSix = true;
 	}
 });
+*/
 
 // Runs salaryCalc() when the form is submitted, as long as it passes the validation.
 document.getElementById('our-form').addEventListener('submit', function(event){
